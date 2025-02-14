@@ -6,7 +6,7 @@ import random
 # tx_power_values = [-40, -20, -16, -12, -8, -4, 0, 2, 3, 4, 5, 6, 7, 8]
 
 same_protocol_blocking = 0  # (0)Inter-protocol, (1) BLE1MBit, (2) IEEE802154250Kbit
-pseudo_random_sequence = 10120
+pseudo_random_sequence = 10120 # Size in bytes
 
 tx_freq = 2425  # MHz
 BLOCKER_DELAY_US = {"BLE1MBit": 255, "IEEE802154250Kbit": 940}  # (e.g., delay for a blocker when transmitting BLE is 255 µs)
@@ -30,7 +30,7 @@ else:  # Same protocol blocking
     # Constants
     BLOCK_PACKET_SIZE = {"BLE1MBit": 64, "IEEE802154250Kbit": 32}  # (e.g., packet size for a BLE blocker when transmitting BLE is 64 Bytes)
     tx_power = -20  # dBm
-    blocker_powers = [-40, -20, -16, -12, -8, -4, 0, 2, 4, 6, 8]
+    blocker_powers = [-40, -20, -16, -12, -8, -4, 0, 4, 8]
 
     if same_protocol_blocking == 1:  # BLE1MBit
         freq_offsets = [-2, 0, 2]
