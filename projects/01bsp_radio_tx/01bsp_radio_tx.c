@@ -108,7 +108,7 @@ void _init_configurations(void) {
     }
 
     // Set PPI and GPIOTE
-    if (configs[current_config_state].increase_id) {
+    if (configs[current_config_state].increase_id || configs[current_config_state].increase_packet_offset) {
         db_gpio_init_irq(&_pin_in_square, DB_GPIO_IN, GPIOTE_CONFIG_POLARITY_Toggle, _gpio_callback_increase_id, NULL);
     }
 
