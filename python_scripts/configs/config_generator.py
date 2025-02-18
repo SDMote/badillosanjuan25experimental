@@ -5,32 +5,49 @@ import random
 # Possible power values supported by the nRF
 # tx_power_values = [-40, -20, -16, -12, -8, -4, 0, 2, 3, 4, 5, 6, 7, 8]
 
-same_protocol_blocking = 0  # (0)Inter-protocol, (1) BLE1MBit, (2) IEEE802154250Kbit
+same_protocol_blocking = 0  # (0) Inter-protocol, (1) BLE1MBit, (2) IEEE802154250Kbit
+BLE_1Mbit = True
 pseudo_random_sequence = 10120 # Size in bytes
 
 tx_freq = 2425  # MHz
-BLOCKER_DELAY_US = {"BLE1MBit": 255, "IEEE802154250Kbit": 940}  # (e.g., delay for a blocker when transmitting BLE is 255 µs)
-TONE_BLOCKER_US = {"BLE1MBit": 645, "IEEE802154250Kbit": 1088}  # (e.g., duration for a tone blocker when transmitting BLE is 645 µs)
-TX_PACKET_SIZE = {"BLE1MBit": 120, "IEEE802154250Kbit": 80}  # (e.g., packet size for BLE transmitter is 120 Bytes)
+if BLE_1Mbit:
+    BLOCKER_DELAY_US = {"BLE1MBit": 255, "IEEE802154250Kbit": 940}  # (e.g., delay for a blocker when transmitting BLE is 255 µs)
+    TONE_BLOCKER_US = {"BLE1MBit": 645, "IEEE802154250Kbit": 1088}  # (e.g., duration for a tone blocker when transmitting BLE is 645 µs)
+    TX_PACKET_SIZE = {"BLE1MBit": 120, "IEEE802154250Kbit": 80}  # (e.g., packet size for BLE transmitter is 120 Bytes)
+else:
+    BLOCKER_DELAY_US = {"BLE2MBit": 148, "IEEE802154250Kbit": 940}  # (e.g., delay for a blocker when transmitting BLE is 255 µs)
+    TONE_BLOCKER_US = {"BLE2MBit": 645, "IEEE802154250Kbit": 1088}  # (e.g., duration for a tone blocker when transmitting BLE is 645 µs)
+    TX_PACKET_SIZE = {"BLE2MBit": 120, "IEEE802154250Kbit": 80}  # (e.g., packet size for BLE transmitter is 120 Bytes)
 
 # Configure Transmission and Blocking Modes Based on the Same Protocol Blocking Parameter
 if same_protocol_blocking == 0:  # Different protocol blocking
-    # Constants
-    BLOCK_PACKET_SIZE = {"BLE1MBit": 8, "IEEE802154250Kbit": 120}  # (e.g., packet size for a 15.4 blocker when transmitting BLE is 8 Bytes)
-    tx_power = 0  # dBm
-    blocker_powers = [-4, 0, 2, 4, 6, 8]
-    freq_offsets = [-2, -1, 0, 1, 2]
+    if BLE_1Mbit:
+        # Constants
+        BLOCK_PACKET_SIZE = {"BLE1MBit": 8, "IEEE802154250Kbit": 120}  # (e.g., packet size for a 15.4 blocker when transmitting BLE is 8 Bytes)
+        tx_power = 0  # dBm
+        blocker_powers = [-4, 0, 2, 4, 6, 8]
+        freq_offsets = [-2, -1, 0, 1, 2]
 
-    tx_modes = ["BLE1MBit", "IEEE802154250Kbit"]
-    block_modes = ["BLE1MBit", "IEEE802154250Kbit", "tone"]
-    tx_modes_dotbot = ["DB_RADIO_BLE_1MBit", "DB_RADIO_IEEE802154_250Kbit"]
+        tx_modes = ["BLE1MBit", "IEEE802154250Kbit"]
+        block_modes = ["BLE1MBit", "IEEE802154250Kbit", "tone"]
+        tx_modes_dotbot = ["DB_RADIO_BLE_1MBit", "DB_RADIO_IEEE802154_250Kbit"]
+    else: # BLE_2Mbit
+        # Constants
+        BLOCK_PACKET_SIZE = {"BLE2MBit": 8, "IEEE802154250Kbit": 120}  # (e.g., packet size for a 15.4 blocker when transmitting BLE is 8 Bytes)
+        tx_power = 0  # dBm
+        blocker_powers = [-4, 0, 2, 4, 6, 8]
+        freq_offsets = [-2, -1, 0, 1, 2]
+
+        tx_modes = ["BLE2MBit", "IEEE802154250Kbit"]
+        block_modes = ["BLE2MBit", "IEEE802154250Kbit"]
+        tx_modes_dotbot = ["DB_RADIO_BLE_2MBit", "DB_RADIO_IEEE802154_250Kbit"]
 
 
 else:  # Same protocol blocking
     # Constants
     BLOCK_PACKET_SIZE = {"BLE1MBit": 64, "IEEE802154250Kbit": 32}  # (e.g., packet size for a BLE blocker when transmitting BLE is 64 Bytes)
-    tx_power = -20  # dBm
-    blocker_powers = [-40, -20, -16, -12, -8, -4, 0, 4, 8]
+    tx_power = -40  # dBm
+    blocker_powers = [-40, -20, -16, -12, -4, 8]
 
     if same_protocol_blocking == 1:  # BLE1MBit
         freq_offsets = [-2, 0, 2]
