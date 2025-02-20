@@ -133,7 +133,7 @@ Additional options:
 
 ### `data_analysis.ipynb ` 
 
-To replicate the figures presented in the paper, run `data_analysis.ipynb` 
+To replicate the figures presented in the paper, first uncompress `data.zip` in `python_scripts/experiment_data` folder, and run `data_analysis.ipynb`.
 
 ### `config_generator.py`  
 
