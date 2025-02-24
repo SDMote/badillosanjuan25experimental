@@ -25,6 +25,8 @@ class RadioConfig(NamedTuple):
 
 # Define the configurations as a list of RadioConfig
 configs = [
-    RadioConfig("BLE1MBit", "IEEE802154250Kbit", 2425, 2423, 0, -4, 255, 0, 120, 8),
-    RadioConfig("BLE1MBit", "IEEE802154250Kbit", 2425, 2424, 0, -4, 255, 0, 120, 8),
+    RadioConfig("BLE1MBit", "IEEE802154250Kbit", 2425, 2425, 0, 8, 255, 0, 120, 8),
+    RadioConfig("BLE1MBit", "tone", 2425, 2425, 0, 8, 255, 645, 120, 0),
+    RadioConfig("IEEE802154250Kbit", "BLE1MBit", 2425, 2425, 0, 8, 940, 0, 80, 120),
+    RadioConfig("IEEE802154250Kbit", "tone", 2425, 2425, 0, 8, 940, 1088, 80, 0),
 ]

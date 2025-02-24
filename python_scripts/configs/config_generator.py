@@ -7,7 +7,7 @@ import random
 
 same_protocol_blocking = 0  # (0) Inter-protocol, (1) BLE1MBit, (2) IEEE802154250Kbit
 BLE_1Mbit = True
-pseudo_random_sequence = 10120 # Size in bytes
+pseudo_random_sequence = 0 # Size in bytes
 
 tx_freq = 2425  # MHz
 if BLE_1Mbit:

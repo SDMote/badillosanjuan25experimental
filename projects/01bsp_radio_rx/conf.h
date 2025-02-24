@@ -8,5 +8,5 @@ typedef struct {
 
 static const radio_config_t configs[] = {
     { DB_RADIO_BLE_1MBit, 25 },
-    { DB_RADIO_BLE_1MBit, 25 },
+    { DB_RADIO_IEEE802154_250Kbit, 25 },
 };
