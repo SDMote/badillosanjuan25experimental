@@ -31,10 +31,10 @@ typedef struct {
 } radio_config_t;
 
 static const radio_config_t configs[] = {
-    { DB_RADIO_BLE_1MBit, 25, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 120, 0 },
-    { DB_RADIO_BLE_1MBit, 25, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 120, 0 },
-    { DB_RADIO_IEEE802154_250Kbit, 25, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 80, 0 },
-    { DB_RADIO_IEEE802154_250Kbit, 25, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 80, 0 },
-    { DB_RADIO_BLE_1MBit, 25, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 120, 0 },          // same-protocol interference in time, adjacent bands
+    // { DB_RADIO_BLE_1MBit, 25, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 120, 0 },
+    // { DB_RADIO_BLE_1MBit, 25, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 120, 0 },
+    // { DB_RADIO_IEEE802154_250Kbit, 25, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 80, 0 },
+    // { DB_RADIO_IEEE802154_250Kbit, 25, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 80, 0 },
+    // { DB_RADIO_BLE_1MBit, 24, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 120, 0 },  // same-protocol interference in time, adjacent bands
     { DB_RADIO_IEEE802154_250Kbit, 25, RADIO_TXPOWER_TXPOWER_0dBm, 0, 0, 0, 80, 0 },  // same-protocol interference in time, adjacent bands
 };
