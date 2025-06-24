@@ -13,7 +13,7 @@ Alexandre Abadie,
 Fabian Graf,
 Thomas Watteyne,
 Filip Maksimovic.
-IEEE SmartComp 2025
+PEMWN 2025
 
 
 <div align="left">  
